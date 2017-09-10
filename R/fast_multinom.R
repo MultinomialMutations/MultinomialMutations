@@ -75,12 +75,11 @@
 #' fit = fast_multinom(cbind(NO, I, VA, VG) ~ strong + apobec + cancer_type, data = cancermutations, refLevel=1, loglik=T, predictions=F, VC=T, subsetmatrix=subs)
 #'
 #' # The same without intercept
-#' fit2 = fast_multinom(cbind(NO, I, VA, VG) ~ 0 + strong + apobec + cancer_type, data = chrom21, refLevel=1, loglik=T, predictions=F, VC=T, subsetmatrix=subs)
+#' fit2 = fast_multinom(cbind(NO, I, VA, VG) ~ 0 + strong + apobec + cancer_type, data = cancermutations, refLevel=1, loglik=T, predictions=F, VC=T, subsetmatrix=subs)
 #'
 #' # Simpler model without subsetting and continuous variable
-#' fit3 = fast_multinom(cbind(NO, I, VA, VG) ~ replication_timing, data = chrom21, refLevel=1, loglik=T, predictions=F, VC=T, subsetmatrix=NULL)
+#' fit3 = fast_multinom(cbind(NO, I, VA, VG) ~ replication_timing, data = cancermutations, refLevel=1, loglik=T, predictions=F, VC=T, subsetmatrix=NULL)
 #'
-#' # See predict.multinom for more examples, especially for the use of different contrasts.
 #'
 #' @author Johanna Bertl
 #'
