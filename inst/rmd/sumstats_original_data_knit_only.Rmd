@@ -1,0 +1,58 @@
+---
+title: "Simple summary statistics to check the data"
+author: "Automatically created with the function sumstats_orig(..., no_pdf_output=T) and sumstats_orig_knit_only"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: pdf_document
+---
+
+# Overview
+
+```{r}
+# Total number of counts
+print(total)
+# Total number of mutations
+print(mut)
+# Mutation rate
+print(mut.rate)
+# number of samples
+print(nsamples)
+# number of genomic positions
+print(npos)
+# numbers of lines with missing values
+print(lines.missing)
+```
+Note that there shouldn't be any missing values in the default columns.
+
+
+# User-specified explanatory variables
+
+```{r}
+nexp = length(explanatory)
+for(i in 1:nexp){
+  
+  print("###########################################################################")
+  print(paste("explanatory variable:", explanatory[i]))
+  print("### distribution: ###")
+  print(tab[[i]])
+  print(tab.prop[[i]])
+  
+  print("### proportion missing: ###")
+  print(missing.prop[[i]])
+  
+}
+```
+
+
+# Default explanatory variables
+
+```{r}
+# left & right
+print(LR)
+print(LR.prop)
+# from
+print(from)
+print(from.prop)
+# to
+print(to)
+print(to.prop)
+```

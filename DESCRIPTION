@@ -1,0 +1,11 @@
+Package: MultinomialMutations
+Type: Package
+Title: Fast multinomial regression for large cancer mutation datasets
+Version: 2.0
+Date: 2017-08-28
+Author: Johanna Bertl
+Maintainer: Johanna Bertl <johanna.bertl@clin.au.dk>
+Description: This package allows multinomial regression on large datasets by splitting up the multinomial model with M output categories into M-1 binomial models and estimating each one separately. The VC matrix of the parameter estimates is computed as in Begg & Gray, 1984. It is especially designed for the analysis of large mutation datasets from cancer genomes. The package was written for the data analysis in the paper Bertl, J.; Guo, Q. et al. bioRxiv, 2017. doi: https://doi.org/10.1101/122879. 
+License: What license is it under?
+Depends: psych, methods, Matrix, MatrixModels, data.table, reshape2, rmarkdown
+RoxygenNote: 6.0.1

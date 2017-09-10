@@ -1,0 +1,64 @@
+---
+title: "Simple summary statistics to check the data"
+author: "automatically created with the function sumstats_original_data"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: pdf_document
+---
+
+# Overview
+
+```{r}
+# Total number of counts
+total = sum(as.numeric(dat$count))
+total
+# Total number of mutations
+mut = sum(dat$count[dat$from != dat$to])
+mut
+# Mutation rate
+mut/total
+# number of samples
+nsamples = nlevels(as.factor(dat$sample_id))
+nsamples
+# number of genomic positions
+total/nsamples
+# numbers of lines with missing values
+apply(dat, 2, sum.na)
+```
+Note that there shouldn't be any missing values in the default columns.
+
+
+# User-specified explanatory variables
+
+```{r}
+for(var in explanatory){
+  
+  print("###########################################################################")
+  print(paste("explanatory variable:", var))
+  print("### distribution: ###")
+  tab = unclass(by(dat$count, as.factor(dat[,var]), sum.numeric))
+  print(tab)
+  print(tab/total)
+  
+  print("### proportion missing: ###")
+  print(sum.numeric(dat$count[is.na(dat[,var])])/total)
+  
+}
+```
+
+
+# Default explanatory variables
+
+```{r}
+# left & right
+LR = unclass(by(dat$count, list(as.factor(dat$left), as.factor(dat$right)), sum.numeric))
+LR
+LR/total
+# from
+from = unclass(by(dat$count, as.factor(dat$from), sum.numeric))
+from
+from/total
+# to
+to = unclass(by(dat$count, as.factor(dat$to), sum.numeric))
+to
+to/total
+```
